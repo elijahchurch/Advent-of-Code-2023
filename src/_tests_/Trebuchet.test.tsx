@@ -16,4 +16,10 @@ describe ('Calibrator', () => {
         const result = pullCalibrationValues(["ft5nm8"]);
         expect(result).toEqual([58]);
     })
+
+    test('pullCalibrationValues should return an array of numbers from an array of strings', () => {
+        const result = pullCalibrationValues(["ft5nm8", "6b5aa", "afour5six"]);
+        expect(result).toEqual([58, 65, 55]);
+    }
+    )
 })
