@@ -1,20 +1,19 @@
-export const findFirstNumber = (data: string) => {
-    const dataArray : string[] = data.split("");
-    const result = dataArray.find((e) => !isNaN(parseInt(e)));
+export const findFirstNumber = (data: string[]) => {
+    const result = data.find((e) => !isNaN(parseInt(e)));
     return (result);
     
 } 
 
-export const findLastNumber = (data: string) => {
-    const dataArray : string[] = data.split("");
-    const result = dataArray.findLast((e) => !isNaN(parseInt(e)));
+export const findLastNumber = (data: string[]) => {
+    const result = data.findLast((e) => !isNaN(parseInt(e)));
     return result;
 }
 
 export const pullCalibrationValues = (data: string[]) : number[] => {
     const result = data.map((string) => {
-        const firstNum = findFirstNumber(string);
-        const lastNum = findLastNumber(string);
+        const stringArray = string.split("");
+        const firstNum = findFirstNumber(stringArray);
+        const lastNum = findLastNumber(stringArray);
         return parseInt(firstNum + lastNum)
     })
     return result;
