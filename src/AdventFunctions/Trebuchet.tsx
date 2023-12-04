@@ -14,8 +14,8 @@ export const findLastNumber = (data: string) => {
 export const pullCalibrationValues = (data: string[]) : number[] => {
     const result = data.map((string) => {
         const firstNum = findFirstNumber(string);
-        const lastNumb = findLastNumber(string);
-        return 
+        const lastNum = findLastNumber(string);
+        return parseInt(firstNum + lastNum)
     })
     return result;
 }

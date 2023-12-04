@@ -11,4 +11,9 @@ describe ('Calibrator', () => {
         const result = findLastNumber("ft5nm8");
         expect(result).toEqual("8");
     })
+
+    test('pullCalibrationValues should return an array of the concated first and last numbers', () => {
+        const result = pullCalibrationValues(["ft5nm8"]);
+        expect(result).toEqual([58]);
+    })
 })
