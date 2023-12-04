@@ -21,7 +21,11 @@ export const pullCalibrationValues = (data: string[]) : number[] => {
 }
 
 export const calibrator = (data: string[]) : number => {
-    const answer: number = data.length;
-    return answer;
+    const calibrationValues: number[] = pullCalibrationValues(data);
+    let sum = 0;
+    calibrationValues.forEach((e) => {
+        sum += e;
+    })
+    return sum;
 }
 

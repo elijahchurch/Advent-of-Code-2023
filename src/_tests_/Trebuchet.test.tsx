@@ -22,4 +22,9 @@ describe ('Calibrator', () => {
         expect(result).toEqual([58, 65, 55]);
     }
     )
+
+    test('calibrator should add an all numbers together that were created from pullCalibrationValues', () => {
+        const result = calibrator(testData);
+        expect(result).toEqual(182);
+    })
 })
