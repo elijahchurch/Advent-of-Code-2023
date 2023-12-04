@@ -1,5 +1,16 @@
 const stringNumbers  = [ "one", "two","three", "four", "five", "six", "seven", "eight", "nine", "1", "2", "3", "4", "5", "6", "7", "8", "9"];  
 const regexOfPossibleValues = new RegExp(stringNumbers.join("|"), "gi");
+const keyValues : { [key : string] : string}= {
+    "one": "1",
+    "two": "2",
+    "three": "3",
+    "four": "4",
+    "five": "5",
+    "six": "6",
+    "seven": "7",
+    "eight": "8",
+    "nine": "9",
+}
 
 export const findFirstNumber = (data: string[]) => {
     const result = data.find((e) => !isNaN(parseInt(e)));
@@ -12,11 +23,22 @@ export const findLastNumber = (data: string[]) => {
     return result;
 }
 
+const pullValue = (key: string) => {
+    if(key.length > 1) {
+        return keyValues[key]
+    }
+    else{
+        return key;
+    }
+}
+
 export const pullCalibrationValues = (data: string[]) : number[] => {
     const result = data.map((string) => {
         const matchArray = string.match(regexOfPossibleValues);
-        const firstNum = matchArray[0];
-        const lastNum = matchArray[matchArray.length - 1];
+        const firstFind = matchArray[0];
+        const firstNum = pullValue(firstFind);
+        const lastFind = matchArray[matchArray.length - 1];
+        const lastNum = pullValue(lastFind);
         return parseInt(firstNum + lastNum)
     })
     return result;
