@@ -1,9 +1,9 @@
-import calibrator from "../AdventFunctions/Trebuchet";
+import {calibrator, findFirstNumber, pullCalibrationValues} from "../AdventFunctions/Trebuchet";
+import { testData } from "../testData";
 
 describe ('Calibrator', () => {
-    test('Should take a string and return its length', () => {
-        const testItem : string = "test";
-        const result : number = calibrator(testItem);
-        expect(result).toEqual(4);
+    test('findFirstNumber loops through a string and finds pulls first number', () => {
+        const result = findFirstNumber("ft5nm8");
+        expect(result).toEqual(5);
     });
 })
