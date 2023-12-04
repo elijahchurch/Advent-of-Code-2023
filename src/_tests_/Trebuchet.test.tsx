@@ -1,5 +1,6 @@
 import {calibrator, findFirstNumber, findLastNumber, pullCalibrationValues} from "../AdventFunctions/Trebuchet";
 import { testData } from "../testData";
+import { data } from "../data/TrebuchetData";
 
 describe ('Calibrator', () => {
     test('findFirstNumber loops through a string and finds pulls first number', () => {
@@ -26,5 +27,10 @@ describe ('Calibrator', () => {
     test('calibrator should add an all numbers together that were created from pullCalibrationValues', () => {
         const result = calibrator(testData);
         expect(result).toEqual(182);
+    })
+
+    test("RESULT!!", () => {
+        const result = calibrator(data);
+        expect(result).toEqual(1000);
     })
 })
