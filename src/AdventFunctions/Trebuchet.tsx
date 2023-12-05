@@ -1,5 +1,7 @@
-const stringNumbers  = [ "one", "two","three", "four", "five", "six", "seven", "eight", "nine", "1", "2", "3", "4", "5", "6", "7", "8", "9"];  
-const regexOfPossibleValues = new RegExp(stringNumbers.join("|"), "gi");
+const stringNumbers  = ["one", "two","three", "four", "five", "six", "seven", "eight", "nine", "1", "2", "3", "4", "5", "6", "7", "8", "9"];  
+const regexOfPossibleValues = new RegExp(stringNumbers.join("|"), "g");
+const stringNumbers2  = ["ne", "wo","hree", "our", "ive", "ix", "even", "ight", "ine", "1", "2", "3", "4", "5", "6", "7", "8", "9"];  
+const reversePossibleValues = new RegExp(`(${stringNumbers.join("|")})(?!(${stringNumbers2.join("|")}))`, "g");
 const keyValues : { [key : string] : string}= {
     "one": "1",
     "two": "2",
@@ -12,24 +14,19 @@ const keyValues : { [key : string] : string}= {
     "nine": "9",
 }
 
-export const findFirstNumber = (data: string[]) => {
-    const result = data.find((e) => !isNaN(parseInt(e)));
-    return (result);
+// export const findFirstNumber = (data: string[]) => {
+//     const result = data.find((e) => !isNaN(parseInt(e)));
+//     return (result);
     
-} 
+// } 
 
-export const findLastNumber = (data: string[]) => {
-    const result = data.findLast((e) => !isNaN(parseInt(e)));
-    return result;
-}
+// export const findLastNumber = (data: string[]) => {
+//     const result = data.findLast((e) => !isNaN(parseInt(e)));
+//     return result;
+// }
 
 const pullValue = (key: string) => {
-    if(key.length > 1) {
-        return keyValues[key]
-    }
-    else{
-        return key;
-    }
+    return keyValues[key] ?? key
 }
 
 export const pullCalibrationValues = (data: string[]) : number[] => {
@@ -37,7 +34,9 @@ export const pullCalibrationValues = (data: string[]) : number[] => {
         const matchArray = string.match(regexOfPossibleValues);
         const firstFind = matchArray[0];
         const firstNum = pullValue(firstFind);
-        const lastFind = matchArray[matchArray.length - 1];
+        const matchArray2 = string.match(reversePossibleValues)
+        console.log(string, matchArray2);
+        const lastFind = matchArray2[(matchArray2.length - 1)];
         const lastNum = pullValue(lastFind);
         return parseInt(firstNum + lastNum)
     })

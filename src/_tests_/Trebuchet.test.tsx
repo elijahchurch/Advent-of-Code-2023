@@ -24,13 +24,23 @@ describe ('Calibrator', () => {
     }
     )
 
+    test('pullCalibrationValues should return an array of numbers correct if a substring number shows up in the data set', () => {
+        const result = pullCalibrationValues(["ft5nm8", "one5two", "five"]);
+        expect(result).toEqual([58, 12, 55])
+    })
+
+    test('check', () => {
+        const result = calibrator(["zoneight"]);
+        expect(result).toEqual(18)
+    })
+
     test('calibrator should add an all numbers together that were created from pullCalibrationValues', () => {
         const result = calibrator(testData);
         expect(result).toEqual(182);
     })
 
-    // test("RESULT!!", () => {
-    //     const result = calibrator(data);
-    //     expect(result).toEqual(1000);
-    // })
+    test("RESULT!!", () => {
+        const result = calibrator(data);
+        expect(result).toEqual(1000);
+    })
 })
