@@ -14,4 +14,8 @@ describe ('CubeProbability', () => {
         const result = setAnalyzer({red: 13});
         expect(result).toEqual(false);
     })
+    test("setAnaylzer should return true if red prop is <= 12", () => {
+        const result = setAnalyzer({red: 12});
+        expect(result).toEqual(true);
+    })
 })
