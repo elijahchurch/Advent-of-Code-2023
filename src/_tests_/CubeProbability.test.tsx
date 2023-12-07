@@ -1,4 +1,4 @@
-import { setAnalyzer } from "../AdventFunctions/CubeProbability"
+import { setAnalyzer, gameAnalyzer } from "../AdventFunctions/CubeProbability"
 
 describe ('CubeProbability', () => {
     test('Sequence Analyzer returns a boolean', () => {
@@ -28,6 +28,10 @@ describe ('CubeProbability', () => {
     test("setAnalyzer will return false if green prop is greater than 13", () => {
         const result = setAnalyzer({blue: 15});
         expect(result).toEqual(false);
+    });
+
+    test('game Analyzer returns a boolean', () => {
+        expect(typeof gameAnalyzer([{green: 30}])).toBe("boolean");
     });
 
 })

@@ -14,3 +14,8 @@ export const setAnalyzer = (gameSet: IGameSet) : boolean => {
     })
     return result;
 }
+
+export const gameAnalyzer = (sets: IGameSet[]) : boolean => {
+    let result = true; 
+    return result; 
+}
