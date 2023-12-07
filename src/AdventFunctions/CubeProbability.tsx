@@ -6,6 +6,8 @@ export const setAnalyzer = (gameSet: IGameSet) : boolean => {
     colors.forEach((color) => {
         if(color === "red" && gameSet[color] > 12) {
             result = false;
+        } else if(color === "green" && gameSet[color] >13) {
+            result = false;
         }
     })
     return result;
