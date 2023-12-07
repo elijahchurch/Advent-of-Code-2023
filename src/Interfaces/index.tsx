@@ -104,5 +104,5 @@ export interface IGames {
     "97": IGameSet[],
     "98": IGameSet[],
     "99": IGameSet[],
-    "100": IGameSet
+    "100": IGameSet[],
 }

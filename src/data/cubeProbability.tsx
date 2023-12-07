@@ -1,4 +1,4 @@
-const Games = {
+export const games = {
     "1": [{"green": 8}, {"green": 5,"blue": 6 ,"red": 1 }, {"green": 2,"blue": 1 ,"red": 4 }, { "green":10,"red": 1 ,"blue": 2 }, {"blue": 2 ,"red": 3 }],
     "2": [{ "blue":10 , "red":12 }, {"red": 8 }, {"green": 7,"red": 5 ,"blue": 7 }],
     "3": [{"red": 1 , "blue":15 ,"green": 3}, {"blue": 8 ,"red": 2 ,"green": 4}, {"red": 2 ,"green": 5,"blue": 9 }],
@@ -98,5 +98,5 @@ const Games = {
     "97":[{"green": 4, "red":12 ,"blue": 2 }, {"blue": 8 ,"red": 3 ,"green": 3}, {"blue": 2 ,"red": 2 ,"green": 7}, { "blue":17 ,"green": 1,"red": 7 }, { "blue":19 ,"red": 1 ,"green": 6}, {"green": 6,"red": 7 ,"blue": 9 }],
     "98":[{ "red":13 , "green":15, "blue":14 }, {"blue": 6 ,"green": 1}, { "blue":14 , "red":12 ,"green": 1}],
     "99":[{"green": 1, "red":11 , "blue":12 }, {"red": 7 , "blue":20 ,"green": 1}, {"blue": 5 ,"red": 5 }, {"blue": 6 ,"red": 4 }, {"blue": 1 ,"green": 1}, {"red": 6 ,"blue": 8 }],
-    "100":["red":{2 ,"green": 9, "blue":11 }, { "blue":13 ,"red": 4 , "green":16}, {"green": 8, "blue":13 }, { "green":10,"red": 1 , "blue":12 }],
-};
+    "100":[{"red":2 ,"green": 9, "blue":11 }, { "blue":13 ,"red": 4 , "green":16}, {"green": 8, "blue":13 }, { "green":10,"red": 1 , "blue":12 }],
+}

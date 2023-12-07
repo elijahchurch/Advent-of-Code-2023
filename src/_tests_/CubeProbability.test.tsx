@@ -1,4 +1,5 @@
-import { setAnalyzer, gameAnalyzer } from "../AdventFunctions/CubeProbability"
+import { setAnalyzer, gameAnalyzer, cubeProbabilityCounter } from "../AdventFunctions/CubeProbability"
+import { games } from "../data/cubeProbability";
 
 describe ('CubeProbability', () => {
     test('Sequence Analyzer returns a boolean', () => {
@@ -38,4 +39,9 @@ describe ('CubeProbability', () => {
         const result = gameAnalyzer([{blue: 15}]);
         expect(result).toEqual(false);
     });
+
+    test("Result!?", () => {
+        const result = cubeProbabilityCounter(games);
+        expect(result).toEqual(99);
+    })
 })

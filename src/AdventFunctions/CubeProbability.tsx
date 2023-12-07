@@ -1,4 +1,4 @@
-import { IGameSet } from "../Interfaces"
+import { IGameSet, IGames } from "../Interfaces"
 
 export const setAnalyzer = (gameSet: IGameSet) : boolean => {
     const colors : string[] = Object.keys(gameSet);
@@ -24,4 +24,16 @@ export const gameAnalyzer = (sets: IGameSet[]) : boolean => {
         }
     })
     return result; 
+}
+
+export const cubeProbabilityCounter = (games: IGames) : number => {
+    let result = 0;
+    const idKeys : string[] = Object.keys(games);
+    idKeys.forEach((id) => {
+        const gameCheck = gameAnalyzer(games[id]);
+        if(gameCheck === true) {
+            result += parseInt(id);
+        }
+    })
+    return result;
 }
