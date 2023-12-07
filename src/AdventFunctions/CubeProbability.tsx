@@ -17,5 +17,11 @@ export const setAnalyzer = (gameSet: IGameSet) : boolean => {
 
 export const gameAnalyzer = (sets: IGameSet[]) : boolean => {
     let result = true; 
+    sets.forEach((set) => {
+        const setResult = setAnalyzer(set);
+        if(setResult === false) {
+            result = false;
+        }
+    })
     return result; 
 }

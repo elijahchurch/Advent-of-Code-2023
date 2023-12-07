@@ -34,4 +34,8 @@ describe ('CubeProbability', () => {
         expect(typeof gameAnalyzer([{green: 30}])).toBe("boolean");
     });
 
+    test("gameAnalyzer will return false if any of the gameSets doesn't meet the requirements", () => {
+        const result = gameAnalyzer([{blue: 15}]);
+        expect(result).toEqual(false);
+    });
 })
