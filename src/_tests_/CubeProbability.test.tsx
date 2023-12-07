@@ -2,6 +2,7 @@ import { setAnalyzer } from "../AdventFunctions/CubeProbability"
 
 describe ('CubeProbability', () => {
     test('Sequence Analyzer returns a boolean', () => {
-        const result = setAnalyzer(["1R", "20B", "30G"])
+        const result = setAnalyzer({green: 40});
+        expect(result).toBe("boolean");
     })
 })

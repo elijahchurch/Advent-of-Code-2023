@@ -1,5 +1,5 @@
+import { IGameSet } from "../Interfaces"
 
-
-export const setAnalyzer = (string[]) : boolean => {
-
+export const setAnalyzer = (gameSet: IGameSet) : boolean => {
+    
 }
