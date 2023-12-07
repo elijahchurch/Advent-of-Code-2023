@@ -37,3 +37,38 @@ export const cubeProbabilityCounter = (games: IGames) : number => {
     })
     return result;
 }
+
+export const gamePowerMultiplier = (sets: IGameSet[]) : number => {
+    let green = 1;
+    let blue = 1;
+    let red = 1;
+    sets.forEach((set) => {
+        if(set["green"]) {
+            if(set["green"] > green) {
+                green = set["green"];
+            }
+        } 
+        if(set["red"]) {
+            if(set["red"] > red) {
+                red = set["red"];
+            }
+        }
+        if(set["blue"]) {
+            if(set["blue"] > blue) {
+                blue = set["blue"];
+            }
+        }
+    })
+    const result = green*blue*red;
+    console.log(result);
+    return result;
+}
+
+export const gamePowerCounter = (games: IGames) : number => {
+    let result = 0;
+    const idKeys : string[] = Object.keys(games);
+    idKeys.forEach((id) => {
+        result += gamePowerMultiplier(games[id]);
+    })
+    return result;
+}

@@ -1,4 +1,4 @@
-import { setAnalyzer, gameAnalyzer, cubeProbabilityCounter } from "../AdventFunctions/CubeProbability"
+import { setAnalyzer, gameAnalyzer, cubeProbabilityCounter, gamePowerCounter } from "../AdventFunctions/CubeProbability"
 import { games } from "../data/cubeProbability";
 
 describe ('CubeProbability', () => {
@@ -40,8 +40,13 @@ describe ('CubeProbability', () => {
         expect(result).toEqual(false);
     });
 
-    test("Result!?", () => {
-        const result = cubeProbabilityCounter(games);
+    // test("Result!?", () => {
+    //     const result = cubeProbabilityCounter(games);
+    //     expect(result).toEqual(99);
+    // })
+
+    test("Result for part 2!", () => {
+        const result = gamePowerCounter(games);
         expect(result).toEqual(99);
     })
 })
