@@ -24,5 +24,10 @@ describe ('CubeProbability', () => {
         const result = setAnalyzer({green: 30});
         expect(result).toEqual(false);
     });
-    
+
+    test("setAnalyzer will return false if green prop is greater than 13", () => {
+        const result = setAnalyzer({blue: 15});
+        expect(result).toEqual(false);
+    });
+
 })
