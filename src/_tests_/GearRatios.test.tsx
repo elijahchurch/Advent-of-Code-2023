@@ -13,5 +13,11 @@ describe("Gear Ratios and helper functions",  () => {
         const testLine = "$..abb$";
         const result = charaIndexer(testLine);
         expect(result).toEqual([0, 6]);
+    });
+
+    test("charaIndexer used in a map should turn a string array into an array of number arrays", () => {
+        const testData = ["..65$", "$%ab"];
+        const result = testData.map((e) => charaIndexer(e));
+        expect(result).toEqual([[4], [0,1]])
     })
 })
