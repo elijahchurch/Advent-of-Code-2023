@@ -1,5 +1,5 @@
 import { readFileIntoStringArray } from "../readFile";
-import { charaIndexer, numberExtractor } from "../AdventFunctions/GearRatios";
+import { charaIndexer, numberExtractor, numIndexer } from "../AdventFunctions/GearRatios";
 
 describe("Gear Ratios and helper functions",  () => {
     
@@ -25,5 +25,11 @@ describe("Gear Ratios and helper functions",  () => {
         const testLine = "56..87&.4a..78";
         const result = numberExtractor(testLine);
         expect(result).toEqual(["56","87","4","78"]);
+    })
+
+    test("numIndexer should return the index positions of all the numbers in a string", () => {
+        const testLine = "56..87&";
+        const result = numIndexer(testLine);
+        expect(result).toEqual([0,1,4,5]);
     })
 })
