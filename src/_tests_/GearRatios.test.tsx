@@ -24,6 +24,6 @@ describe("Gear Ratios and helper functions",  () => {
     test("NumberExtractor should pull all full numbers from a string", () => {
         const testLine = "56..87&.4a..78";
         const result = numberExtractor(testLine);
-        expect(result).toEqual([56,87,4,78]);
+        expect(result).toEqual(["56","87","4","78"]);
     })
 })
