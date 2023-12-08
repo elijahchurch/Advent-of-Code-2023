@@ -1,5 +1,5 @@
 import { readFileIntoStringArray } from "../readFile";
-import { charaIndexer } from "../AdventFunctions/GearRatios";
+import { charaIndexer, numberExtractor } from "../AdventFunctions/GearRatios";
 
 describe("Gear Ratios and helper functions",  () => {
     
@@ -19,5 +19,11 @@ describe("Gear Ratios and helper functions",  () => {
         const testData = ["..65$", "$%ab"];
         const result = testData.map((e) => charaIndexer(e));
         expect(result).toEqual([[4], [0,1]])
+    });
+
+    test("NumberExtractor should pull all full numbers from a string", () => {
+        const testLine = "56..87&.4a..78";
+        const result = numberExtractor(testLine);
+        expect(result).toEqual([56,87,4,78]);
     })
 })
