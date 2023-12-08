@@ -1,5 +1,5 @@
 import { readFileIntoStringArray } from "../readFile";
-import { charaIndexer, numberExtractor, numIndexer, partNumberInfo, partNumberchecker } from "../AdventFunctions/GearRatios";
+import { charaIndexer, numberExtractor, numIndexer, partNumberInfo, partNumberchecker, gearRatioCalculator} from "../AdventFunctions/GearRatios";
 
 describe("Gear Ratios and helper functions",  () => {
     
@@ -47,4 +47,20 @@ describe("Gear Ratios and helper functions",  () => {
         const result = partNumberchecker(testData);
         expect(result).toEqual([87, 9, 1]);
     });
+
+    test("gearRatioCalculator should add up all viable numbers", () => {
+        const testLine = "56..87&";
+        const testLine2 = "...&.9";
+        const testLine3 = "%..1..";
+        const testData = [testLine, testLine2, testLine3];
+        const result = gearRatioCalculator(testData);
+        expect(result).toEqual(97);
+    });
+
+    test("RESULT!?", async () => {
+        const data = await readFileIntoStringArray("src/data/GearRatiosData");
+        const result = gearRatioCalculator(data);
+        expect(result).toEqual(1000);
+
+    })
 })
