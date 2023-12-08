@@ -1,3 +1,5 @@
+// This needs to get pushed to github?
+
 export const charaIndexer = (data: string) : number[] => {
     const charaArray = data.split("");
     const result = charaArray.map((e, index) => {
