@@ -1,5 +1,5 @@
 import { readFileIntoStringArray } from "../readFile";
-import { charaIndexer, numberExtractor, numIndexer } from "../AdventFunctions/GearRatios";
+import { charaIndexer, numberExtractor, numIndexer, partNumberInfo, partNumberchecker } from "../AdventFunctions/GearRatios";
 
 describe("Gear Ratios and helper functions",  () => {
     
@@ -32,4 +32,19 @@ describe("Gear Ratios and helper functions",  () => {
         const result = numIndexer(testLine);
         expect(result).toEqual([0,1,4,5]);
     })
+
+    test("partNumberInfo should return an array with number and numberArray", () => {
+        const testLine = "56..87&";
+        const result = partNumberInfo(testLine);
+        expect(result).toEqual([["56", [0,1]], ["87", [4,5]]]);
+    })
+
+    test("partNumberChecker should return a result", () => {
+        const testLine = "56..87&";
+        const testLine2 = "...&.9";
+        const testLine3 = "%..1..";
+        const testData = [testLine, testLine2, testLine3];
+        const result = partNumberchecker(testData);
+        expect(result).toEqual([87, 9, 1]);
+    });
 })
