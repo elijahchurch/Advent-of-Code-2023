@@ -106,3 +106,8 @@ export interface IGames {
     "99": IGameSet[],
     "100": IGameSet[],
 }
+
+export interface ICard {
+    win: number[],
+    values: number[],
+}
