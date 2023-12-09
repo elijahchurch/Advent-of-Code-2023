@@ -13,3 +13,12 @@ export const determineCardWorth = (card: IScratchCard) : number => {
     })
     return cardWorth;
 }
+
+export const scratchCardEvaluator = (cardStack : IScratchCard[]) : number => {
+    let result = 0;
+    cardStack.forEach((card) => {
+        const worth = determineCardWorth(card);
+        result += worth;
+    })
+    return result;
+} 

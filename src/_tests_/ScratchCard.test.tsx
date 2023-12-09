@@ -1,4 +1,4 @@
-import { determineCardWorth } from "../AdventFunctions/ScratchCard"
+import { determineCardWorth, scratchCardEvaluator } from "../AdventFunctions/ScratchCard"
 
 describe("ScratchCard and helper functions", () => {
 
@@ -33,6 +33,24 @@ describe("ScratchCard and helper functions", () => {
         }
         const result = determineCardWorth(card);
         expect(result).toEqual(8);
+    });
+
+    test("scratchCardEvaluator will return correct # with multiple cards", () => {
+        const winningNumbers1 = [5,7,8, 9, 11];
+        const values1 = [3,78,5, 11, 9, 7];
+        const card1 = {
+            win: winningNumbers1,
+            values: values1,
+        };
+        const winningNumbers2 = [4,3,2];
+        const values2 = [34, 3, 2];
+        const card2 = {
+            win: winningNumbers2,
+            values: values2,
+        };
+        const cardGroup = [card1, card2];
+        const result = scratchCardEvaluator(cardGroup);
+        expect(result).toEqual(10);
     });
 
 
