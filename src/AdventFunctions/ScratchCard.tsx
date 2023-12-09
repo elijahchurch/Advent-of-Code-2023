@@ -22,3 +22,13 @@ export const scratchCardEvaluator = (cardStack : IScratchCard[]) : number => {
     })
     return result;
 } 
+
+export const determineMatches = (card: IScratchCard) : number => {
+    let cardWorth = 0;
+    card.values.forEach((value) => {
+        if(card.win.includes(value)) {
+            cardWorth += 1;
+        }
+    });
+    return cardWorth;
+} 

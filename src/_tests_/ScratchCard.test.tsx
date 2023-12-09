@@ -1,4 +1,5 @@
-import { determineCardWorth, scratchCardEvaluator } from "../AdventFunctions/ScratchCard"
+import { determineCardWorth, scratchCardEvaluator, determineMatches } from "../AdventFunctions/ScratchCard"
+import { scratchCards } from "../data/ScratchCardsData";
 
 describe("ScratchCard and helper functions", () => {
 
@@ -53,5 +54,20 @@ describe("ScratchCard and helper functions", () => {
         expect(result).toEqual(10);
     });
 
+    // test("Result!", () => {
+    //     const result = scratchCardEvaluator(scratchCards);
+    //     expect(result).toEqual(1000);
+    // })
+
+    test("determineMatches will return correct # of matches", () => {
+        const winningNumbers = [5,7,8, 9, 11];
+        const values = [3,78,5, 11, 9, 7];
+        const card = {
+            win: winningNumbers,
+            values: values,
+        }
+        const result = determineMatches(card);
+        expect(result).toEqual(4);
+    });
 
 })
