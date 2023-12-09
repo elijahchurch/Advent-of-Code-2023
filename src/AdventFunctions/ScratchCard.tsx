@@ -6,6 +6,8 @@ export const determineCardWorth = (card: IScratchCard) : number => {
         if(card.win.includes(value)) {
             if (cardWorth === 0) {
                 cardWorth = 1;
+            } else {
+                cardWorth = cardWorth * 2;
             }
         }
     })
