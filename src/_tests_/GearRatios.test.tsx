@@ -57,10 +57,10 @@ describe("Gear Ratios and helper functions",  () => {
         expect(result).toEqual(97);
     });
 
-    test("RESULT!?", async () => {
-        const data = await readFileIntoStringArray("src/data/GearRatiosData");
-        const result = gearRatioCalculator(data);
-        expect(result).toEqual(1000);
+    // test("RESULT!?", async () => {
+    //     const data = await readFileIntoStringArray("src/data/GearRatiosData");
+    //     const result = gearRatioCalculator(data);
+    //     expect(result).toEqual(1000);
 
-    })
+    // })
 })

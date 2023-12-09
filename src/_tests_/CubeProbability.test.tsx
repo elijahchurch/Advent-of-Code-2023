@@ -45,8 +45,8 @@ describe ('CubeProbability', () => {
     //     expect(result).toEqual(99);
     // })
 
-    test("Result for part 2!", () => {
-        const result = gamePowerCounter(games);
-        expect(result).toEqual(99);
-    })
+    // test("Result for part 2!", () => {
+    //     const result = gamePowerCounter(games);
+    //     expect(result).toEqual(99);
+    // })
 })

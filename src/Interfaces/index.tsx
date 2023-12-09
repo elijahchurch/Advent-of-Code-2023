@@ -107,7 +107,7 @@ export interface IGames {
     "100": IGameSet[],
 }
 
-export interface ICard {
+export interface IScratchCard {
     win: number[],
     values: number[],
 }

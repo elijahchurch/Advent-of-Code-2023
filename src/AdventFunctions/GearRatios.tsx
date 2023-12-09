@@ -103,7 +103,6 @@ export const partNumberchecker = (data: string[]) => {
 
 export const gearRatioCalculator = (data : string[]) => {
     const numArray = partNumberchecker(data);
-    console.log(numArray);
     let result = 0;
     numArray.forEach((number) => {
         result += number;
