@@ -32,3 +32,22 @@ export const determineMatches = (card: IScratchCard) : number => {
     });
     return cardWorth;
 } 
+
+export const determineNumberOfScratchCards = (cardStack : IScratchCard[]) : number => {
+    let result = 1;
+    const findCards = (index: number) => {
+        let matches = determineMatches(cardStack[index]);
+        console.log(matches);
+        if( matches === 0) {
+            return;
+        } else {
+            for (let i = matches; i = loopLength; i++) {
+                result += 1;
+                matches = matches -1;
+                findCards(index+i);    
+            }
+        }
+    }
+    findCards(0);
+    return result;
+}

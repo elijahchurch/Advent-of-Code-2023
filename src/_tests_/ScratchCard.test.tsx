@@ -1,4 +1,4 @@
-import { determineCardWorth, scratchCardEvaluator, determineMatches } from "../AdventFunctions/ScratchCard"
+import { determineCardWorth, scratchCardEvaluator, determineMatches, determineNumberOfScratchCards } from "../AdventFunctions/ScratchCard"
 import { scratchCards } from "../data/ScratchCardsData";
 
 describe("ScratchCard and helper functions", () => {
@@ -70,4 +70,8 @@ describe("ScratchCard and helper functions", () => {
         expect(result).toEqual(4);
     });
 
+    test("Result!", () => {
+        const result = determineNumberOfScratchCards(scratchCards);
+        expect(result).toEqual(100);
+    })
 })
