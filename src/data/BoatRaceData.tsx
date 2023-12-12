@@ -26,3 +26,8 @@ export const races = [
         distance: 1404,
     }
 ]
+
+export const longRace = {
+    time: 54946592,
+    distance: 302147610291404,
+}

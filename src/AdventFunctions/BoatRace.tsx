@@ -11,6 +11,7 @@ export const winningRecordOptions = (race: IRace) : number => {
     return winningOptions;
 }
 
+
 export const raceMarginOfError = (races: IRace[]) => {
     let errorMargin = 1;
     races.forEach((race) => {
@@ -19,3 +20,4 @@ export const raceMarginOfError = (races: IRace[]) => {
     })
     return errorMargin;
 }
+
