@@ -10,3 +10,12 @@ export const winningRecordOptions = (race: IRace) : number => {
     }
     return winningOptions;
 }
+
+export const raceMarginOfError = (races: IRace[]) => {
+    let errorMargin = 1;
+    races.forEach((race) => {
+        const winOptions = winningRecordOptions(race);
+        errorMargin *= winOptions;
+    })
+    return errorMargin;
+}
