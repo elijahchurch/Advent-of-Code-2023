@@ -3,6 +3,11 @@ export interface IRace {
     distance: number,
 }
 
+export const testRace = {
+    time: 7,
+    distance: 9,
+}
+
 export const races = [
     {
         time: 54,
