@@ -45,7 +45,8 @@ export const determineHandType = (hand: string[]) : string => {
         return "threeOfAKind";
     } else if(
         (sorted[0] === sorted[1] && sorted[2] === sorted[3]) || 
-        (sorted[1] === sorted[2] && sorted[3] === sorted[4])) {
+        (sorted[1] === sorted[2] && sorted[3] === sorted[4]) ||
+        (sorted[0] === sorted[1] && sorted[3] === sorted[4])) {
         return "twoPair";
     } else {
         const setOfElements = new Set(sorted);
