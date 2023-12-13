@@ -19,4 +19,10 @@ describe("CamelCards and helper functions", () => {
         const result = determineHandType(hand);
         expect(result).toEqual("fullHouse");
     })
+
+    test("determineCardWorth can determine fullHouse", () => {
+        const hand = ["1", "a", "x", "a", "a"];
+        const result = determineHandType(hand);
+        expect(result).toEqual("threeOfAKind");
+    })
 })
