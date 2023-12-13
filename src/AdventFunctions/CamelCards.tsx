@@ -1,3 +1,5 @@
+import {ICamelCards} from "../data/CamelCardsData"
+
 export const typeStrength = {
     highCard: 1,
     onePair: 2,
@@ -65,4 +67,11 @@ export const determineStrongerHand = (index: number, hand1 : string[], hand2: st
     } else {
         return determineStrongerHand(index +1, hand1, hand2);
     }
+}
+
+export const addTypes = (camelCards: ICamelCards []) : ICamelCards[] => {
+    camelCards.forEach((element) => {
+        element.type = determineHandType(element.hand);
+    });
+    return camelCards;
 }

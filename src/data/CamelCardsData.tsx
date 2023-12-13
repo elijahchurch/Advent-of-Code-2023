@@ -1,6 +1,7 @@
 export interface ICamelCards {
     hand: string[],
-    bid: number
+    bid: number,
+    type?: string,
 }
 
 export const camelCards = [
