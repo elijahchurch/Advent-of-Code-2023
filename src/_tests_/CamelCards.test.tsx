@@ -52,9 +52,16 @@ describe("CamelCards and helper functions", () => {
     });
 
     test("determineStrongerHand returns -1 if the first hand's first card is lower", () => {
-        const hand1 = ["b", "2", "T", "3", "7"];
+        const hand1 = ["8", "2", "T", "3", "7"];
         const hand2 = ["A", "3", "4", "5", "6"];
         const result = determineStrongerHand(0, hand1, hand2);
         expect(result).toEqual(-1)
+    })
+
+    test("determineStrongerHand returns 1 if the first hand's last card is higher", () => {
+        const hand1 = ["A", "2", "4", "5", "7"];
+        const hand2 = ["A", "2", "4", "5", "6"];
+        const result = determineStrongerHand(0, hand1, hand2);
+        expect(result).toEqual(1)
     })
 })
