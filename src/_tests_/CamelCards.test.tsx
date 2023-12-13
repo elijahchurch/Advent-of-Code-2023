@@ -7,4 +7,12 @@ describe("CamelCards and helper functions", () => {
         const result = determineHandType(hand);
         expect(result).toEqual("fiveOfAKind");
     })
+
+    test("determineCardWorth can determine fourOfAKind", () => {
+        const hand = ["a", "1", "a", "a", "a"];
+        const result = determineHandType(hand);
+        expect(result).toEqual("fourOfAKind");
+    })
+
+    
 })
