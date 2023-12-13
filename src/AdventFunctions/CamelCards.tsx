@@ -27,7 +27,7 @@ export const handStrength = {
 }
 
 export const determineHandType = (hand: string[]) : string => {
-    const sorted = hand.sort();
+    const sorted = [...hand].sort();
     if(sorted[0] === sorted[1] && sorted[0] === sorted[2] && sorted[0] === sorted[3] && sorted[0] === sorted[4]) {
         return "fiveOfAKind";
     } else if(
@@ -49,7 +49,6 @@ export const determineHandType = (hand: string[]) : string => {
         return "twoPair";
     } else {
         const setOfElements = new Set(sorted);
-        console.log(setOfElements);
         if(setOfElements.size !== sorted.length) {
             return "onePair";
         }
@@ -74,4 +73,27 @@ export const addTypes = (camelCards: ICamelCards []) : ICamelCards[] => {
         element.type = determineHandType(element.hand);
     });
     return camelCards;
+}
+
+export const determineCamelCardsWinnings = (camelCards: ICamelCards []) : number => {
+    const typedHands = addTypes(camelCards);
+    const sortedHands = typedHands.sort((a, b) => {
+        if(typeStrength[a.type] > typeStrength[b.type]) {
+            return 1;
+        } else if(typeStrength[a.type] < typeStrength[b.type]) {
+            return -1;
+        } else {
+            return determineStrongerHand(0, a.hand, b.hand);
+        }
+    });
+    let result = 0;
+    console.log(sortedHands);
+    sortedHands.forEach((element, index) => {
+        const winning = (element.bid)*(index+1);
+        if(index < 5) {
+            console.log(winning);
+        };
+        result += winning;
+    })
+    return result;
 }

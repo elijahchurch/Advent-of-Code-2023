@@ -531,7 +531,7 @@ export const camelCards = [
     },
     {
         hand: ["Q","3","J","5","6"],
-        bid: 1 , 
+        bid: 1, 
     },  
     {
         hand: ["K","A","A","J","7"],
@@ -855,7 +855,7 @@ export const camelCards = [
     },
     {
         hand: ["K","6","J","K","A"],
-        bid: 9 , 
+        bid: 9, 
     },  
     {
         hand: ["8","T","T","8","5"],
@@ -1147,7 +1147,7 @@ export const camelCards = [
     },
     {
         hand: ["T","J","T","9","4"],
-        bid: 5 , 
+        bid: 5, 
     }, 
     {
         hand: ["2","9","2","5","A"],
@@ -1431,7 +1431,7 @@ export const camelCards = [
     },
     {
         hand: ["3","3","2","J","4"],
-        bid: 8 , 
+        bid: 8, 
     },  
     {
         hand: ["7","7","7","7","K"],
@@ -1871,7 +1871,7 @@ export const camelCards = [
     },
     {
         hand: ["6","J","T","T","6"],
-        bid: 2 , 
+        bid: 2, 
     },   
     {
         hand: ["9","9","8","8","9"],
@@ -2567,7 +2567,7 @@ export const camelCards = [
     },
     {
         hand: ["J","6","3","6","J"],
-        bid: 4 , 
+        bid: 4, 
     },   
     {
         hand: ["9","A","A","3","A"],
@@ -3611,7 +3611,7 @@ export const camelCards = [
     },
     {
         hand: ["9","4","4","4","9"],
-        bid: 6 , 
+        bid: 6, 
     },   
     {
         hand: ["J","7","7","6","7"],
@@ -4004,5 +4004,28 @@ export const camelCards = [
     {
         hand: ["Q","7","Q","Q","J"],
         bid: 572, 
-    },
+    }
+]
+
+export const exampleData = [
+{
+    hand: ["3","2", "T", "3", "K"],
+    bid: 765,
+},
+{
+    hand: ["T","5", "5", "J", "5"],
+    bid: 684,
+},
+{
+    hand: ["K","K", "6", "7", "7"],
+    bid: 28,
+},
+{
+    hand: ["K","T", "J", "J", "T"],
+    bid: 220,
+},
+{
+    hand: ["Q","Q", "Q", "J", "A"],
+    bid: 483,
+}
 ]
