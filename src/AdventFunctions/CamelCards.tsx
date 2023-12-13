@@ -10,12 +10,16 @@ export const handStrength = {
 
 export const determineHandType = (hand: string[]) : string => {
     const sorted = hand.sort();
-    if(
-        sorted[0] === sorted[1] &&
-        sorted[0] === sorted[2] &&
-        sorted[0] === sorted[3] &&
-        sorted[0] === sorted[4]) {
-            return "fiveOfAKind";
-    }
+    if(sorted[0] === sorted[1] && sorted[0] === sorted[2] && sorted[0] === sorted[3] && sorted[0] === sorted[4]) {
+        return "fiveOfAKind";
+    } else if(
+        (sorted[0] === sorted[1] && sorted[0] === sorted[2] && sorted[0] === sorted[3]) || 
+        (sorted[1] === sorted[2] && sorted[1] === sorted[3] && sorted[1] === sorted[4])) {
+        return "fourOfAKind";
+    } else if(
+        (sorted[0] === sorted[1] && sorted[0] === sorted[2] && sorted[3] === sorted[4]) ||
+        (sorted[0] === sorted[1] && sorted[2] === sorted[3] && sorted[2] === sorted[4])) {
+            return "fullHouse";
+        }
     return "highCard";
 }
