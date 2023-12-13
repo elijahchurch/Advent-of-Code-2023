@@ -29,6 +29,14 @@ export const determineHandType = (hand: string[]) : string => {
         (sorted[0] === sorted[1] && sorted[2] === sorted[3]) || 
         (sorted[1] === sorted[2] && sorted[3] === sorted[4])) {
         return "twoPair";
+    } else {
+        const setOfElements = new Set(sorted);
+        console.log(setOfElements);
+        if(setOfElements.size !== sorted.length) {
+            return "onePair";
+        }
+        else {
+            return "highCard";
+        }
     }
-    return "highCard";
 }

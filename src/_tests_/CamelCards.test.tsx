@@ -31,4 +31,10 @@ describe("CamelCards and helper functions", () => {
         const result = determineHandType(hand);
         expect(result).toEqual("twoPair");
     })
+
+    test("determineCardWorth can determine onePair", () => {
+        const hand = ["1", "d", "x", "c", "x"];
+        const result = determineHandType(hand);
+        expect(result).toEqual("onePair");
+    })
 })
