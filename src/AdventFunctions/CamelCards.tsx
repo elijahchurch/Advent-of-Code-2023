@@ -9,5 +9,13 @@ export const handStrength = {
 }
 
 export const determineHandType = (hand: string[]) : string => {
-    return "hi!";
+    const sorted = hand.sort();
+    console.log(sorted);
+    if(
+        sorted[0] === sorted[1] &&
+        sorted[0] === sorted[2] &&
+        sorted[0] === sorted[3] &&
+        sorted[0] === sorted[4]) {
+            return "fiveOfAKind";
+    }
 }
