@@ -11,16 +11,16 @@ export const typeStrength = {
 }
 
 export const handStrength = {
-    "2": 1,
-    "3": 2,
-    "4": 3,
-    "5": 4,
-    "6": 5,
-    "7": 6,
-    "8": 7,
-    "9": 8,
-    "T": 9,
-    "J": 10,
+    "J": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9,
+    "T": 10,
     "Q": 11,
     "K": 12,
     "A": 13,
@@ -28,33 +28,76 @@ export const handStrength = {
 
 export const determineHandType = (hand: string[]) : string => {
     const sorted = [...hand].sort();
-    if(sorted[0] === sorted[1] && sorted[0] === sorted[2] && sorted[0] === sorted[3] && sorted[0] === sorted[4]) {
-        return "fiveOfAKind";
-    } else if(
-        (sorted[0] === sorted[1] && sorted[0] === sorted[2] && sorted[0] === sorted[3]) || 
-        (sorted[1] === sorted[2] && sorted[1] === sorted[3] && sorted[1] === sorted[4])) {
-        return "fourOfAKind";
-    } else if(
-        (sorted[0] === sorted[1] && sorted[0] === sorted[2] && sorted[3] === sorted[4]) ||
-        (sorted[0] === sorted[1] && sorted[2] === sorted[3] && sorted[2] === sorted[4])) {
-        return "fullHouse";
-    } else if(
-        (sorted[0] === sorted[1] && sorted[0] === sorted[2]) ||
-        (sorted[1] === sorted[2] && sorted[1] === sorted[3]) ||
-        (sorted[2] === sorted[3] && sorted[2] === sorted[4])) {
-        return "threeOfAKind";
-    } else if(
-        (sorted[0] === sorted[1] && sorted[2] === sorted[3]) || 
-        (sorted[1] === sorted[2] && sorted[3] === sorted[4]) ||
-        (sorted[0] === sorted[1] && sorted[3] === sorted[4])) {
-        return "twoPair";
-    } else {
-        const setOfElements = new Set(sorted);
-        if(setOfElements.size !== sorted.length) {
-            return "onePair";
+    if(!sorted.includes("J")) {
+        if(sorted[0] === sorted[1] && sorted[0] === sorted[2] && sorted[0] === sorted[3] && sorted[0] === sorted[4]) {
+            return "fiveOfAKind";
+        } else if(
+            (sorted[0] === sorted[1] && sorted[0] === sorted[2] && sorted[0] === sorted[3]) || 
+            (sorted[1] === sorted[2] && sorted[1] === sorted[3] && sorted[1] === sorted[4])) {
+            return "fourOfAKind";
+        } else if(
+            (sorted[0] === sorted[1] && sorted[0] === sorted[2] && sorted[3] === sorted[4]) ||
+            (sorted[0] === sorted[1] && sorted[2] === sorted[3] && sorted[2] === sorted[4])) {
+            return "fullHouse";
+        } else if(
+            (sorted[0] === sorted[1] && sorted[0] === sorted[2]) ||
+            (sorted[1] === sorted[2] && sorted[1] === sorted[3]) ||
+            (sorted[2] === sorted[3] && sorted[2] === sorted[4])) {
+            return "threeOfAKind";
+        } else if(
+            (sorted[0] === sorted[1] && sorted[2] === sorted[3]) || 
+            (sorted[1] === sorted[2] && sorted[3] === sorted[4]) ||
+            (sorted[0] === sorted[1] && sorted[3] === sorted[4])) {
+            return "twoPair";
+        } else {
+            const setOfElements = new Set(sorted);
+            if(setOfElements.size !== sorted.length) {
+                return "onePair";
+            }
+            else {
+                return "highCard";
+            }
         }
-        else {
-            return "highCard";
+    } else {
+        const reSort = sorted.sort((a, b) => {
+            if(handStrength[a] >= handStrength[b]) {
+                return 1;
+            } else if(handStrength[a] < handStrength[b]){
+                return -1;
+            }
+        });
+        if(reSort[3] === "J") {
+            return "fiveOfAKind";
+        } else if(reSort[2] === "J") {
+            if(reSort[3] === reSort[4]) {
+                return "fiveOfAKind";
+            } else {
+                return "fourOfAKind";
+            }
+        } else if(reSort[1] === "J") {
+            if(reSort[2] === reSort[3] && reSort[2] === reSort[4]) {
+                return "fiveOfAKind";
+            } else if(reSort[2] === reSort[3] || reSort[3] === reSort[4] || reSort[2] === reSort[4]) {
+                return "fourOfAKind";
+            } else {
+                return "threeOfAKind";
+            }
+        } else {
+            if(reSort[1] === reSort[2] && reSort[1] === reSort[3] && reSort[1] === reSort[4]) {
+                return "fiveOfAKind";
+            } else if(
+                (reSort[1] === reSort[2] && reSort[1] === reSort[3]) ||
+                (reSort[2] === reSort[3] && reSort[2] === reSort[4])) {
+                return "fourOfAKind";
+            } else if(reSort[1] === reSort[2] && reSort[3] === reSort[4]) {
+                return "fullHouse";
+            } else if(reSort[1] === reSort[2] || reSort[3] === reSort[4] || reSort[2] === reSort[3]) {
+                return "threeOfAKind";
+            } else {
+                return "onePair";
+            }
+            
+            
         }
     }
 }
@@ -88,12 +131,11 @@ export const determineCamelCardsWinnings = (camelCards: ICamelCards []) : number
         }
     });
     let result = 0;
-    console.log(sortedHands);
     sortedHands.forEach((element, index) => {
+        if(element.type === "threeOfAKind") {
+            console.log(element);
+        }
         const winning = (element.bid)*(index+1);
-        if(index < 5) {
-            console.log(winning);
-        };
         result += winning;
     })
     return result;
