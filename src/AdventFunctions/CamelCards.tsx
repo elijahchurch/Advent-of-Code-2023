@@ -96,8 +96,6 @@ export const determineHandType = (hand: string[]) : string => {
             } else {
                 return "onePair";
             }
-            
-            
         }
     }
 }
